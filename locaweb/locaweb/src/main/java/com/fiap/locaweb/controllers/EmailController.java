@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/emails")
@@ -19,7 +20,7 @@ public class EmailController {
     }
 
     @GetMapping("/{id}")
-    public EmailModel getEmailById(@PathVariable Long id) {
+    public Optional<EmailModel> getEmailById(@PathVariable Long id) {
         return emailService.getEmailById(id);
     }
 

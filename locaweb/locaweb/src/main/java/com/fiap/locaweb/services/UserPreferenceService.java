@@ -5,12 +5,14 @@ import com.fiap.locaweb.repositories.UserPreferenceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserPreferenceService {
     @Autowired
     private UserPreferenceRepository userPreferenceRepository;
 
-    public UserPreferenceModel getUserPreference(Long id) {
+    public Optional<UserPreferenceModel> getUserPreference(Long id) {
         return userPreferenceRepository.findById(id);
     }
 
