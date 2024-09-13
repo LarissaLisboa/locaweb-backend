@@ -5,6 +5,8 @@ import com.fiap.locaweb.services.UserPreferenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/preferences")
 public class UserPreference {
@@ -12,7 +14,7 @@ public class UserPreference {
     private UserPreferenceService userPreferenceService;
 
     @GetMapping("/{id}")
-    public UserPreferenceModel getUserPreference(@PathVariable Long id) {
+    public Optional<UserPreferenceModel> getUserPreference(@PathVariable Long id) {
         return userPreferenceService.getUserPreference(id);
     }
 

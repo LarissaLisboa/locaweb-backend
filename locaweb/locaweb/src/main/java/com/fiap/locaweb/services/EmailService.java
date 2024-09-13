@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmailService {
@@ -16,7 +17,7 @@ public class EmailService {
         return emailRepository.findAll();
     }
 
-    public EmailModel getEmailById(Long id) {
+    public Optional<EmailModel> getEmailById(Long id) {
         return emailRepository.findById(id);
     }
 
