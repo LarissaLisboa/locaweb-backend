@@ -6,7 +6,9 @@ import lombok.*;
 @Getter
 @Setter
 @Entity
-@Table
+@Table(name = "emails")
+@NoArgsConstructor
+@AllArgsConstructor
 public class EmailModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

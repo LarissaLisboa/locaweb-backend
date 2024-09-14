@@ -21,11 +21,14 @@ public class EmailController {
 
     @GetMapping("/{id}")
     public Optional<EmailModel> getEmailById(@PathVariable Long id) {
+
         return emailService.getEmailById(id);
     }
 
-    @PostMapping
+    @PostMapping("/criar-email")
     public EmailModel sendEmail(@RequestBody EmailModel email) {
+
         return emailService.saveEmail(email);
     }
+
 }
