@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface UserPreferenceRepository extends JpaRepository<UserPreferenceModel, Long> {
-    Optional<UserPreferenceModel> findById(Long id);
+    Optional<UserPreferenceModel> findByUserId(Long userId);
 
     UserPreferenceModel save(UserPreferenceModel userPreference);
 }
