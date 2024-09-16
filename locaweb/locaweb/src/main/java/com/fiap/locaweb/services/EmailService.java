@@ -30,11 +30,39 @@ public class EmailService {
         return emailRepository.save(email);
     }
 
-    public UserPreferenceModel saveUserPreference(UserPreferenceModel userPreference) {
-        return userPreferenceRepository.save(userPreference);
-    }
+    public EmailModel updateEmail(Long id, EmailModel updatedEmail) {
+        return emailRepository.findById(id)
+                .map(email -> {
+                    if (updatedEmail.isRead() != email.isRead()) {
+                        email.setRead(updatedEmail.isRead());
+                    }
+                    if (updatedEmail.isStarred() != email.isStarred()) {
+                        email.setStarred(updatedEmail.isStarred());
+                    }
+                    if (updatedEmail.isTrashed() != email.isTrashed()) {
+                        email.setTrashed(updatedEmail.isTrashed());
+                    }
 
-    public Optional<UserPreferenceModel> getUserPreference(Long userId) {
-        return userPreferenceRepository.findById(userId);
+                    if (updatedEmail.isHasEvent() != email.isHasEvent()) {
+                        email.setHasEvent(updatedEmail.isHasEvent());
+                    }
+                    if (updatedEmail.getEventTitle() != null) {
+                        email.setEventTitle(updatedEmail.getEventTitle());
+                    }
+                    if (updatedEmail.getEventDate() != null) {
+                        email.setEventDate(updatedEmail.getEventDate());
+                    }
+                    if (updatedEmail.getEventStartHour() != null) {
+                        email.setEventStartHour(updatedEmail.getEventStartHour());
+                    }
+                    if (updatedEmail.getEventEndHour() != null) {
+                        email.setEventEndHour(updatedEmail.getEventEndHour());
+                    }
+                    if (updatedEmail.getDescription() != null) {
+                        email.setDescription(updatedEmail.getDescription());
+                    }
+                    return emailRepository.save(email);
+                })
+                .orElseThrow(() -> new RuntimeException("Email not found"));
     }
 }

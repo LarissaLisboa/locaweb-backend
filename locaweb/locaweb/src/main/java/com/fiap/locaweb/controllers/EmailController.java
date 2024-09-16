@@ -31,4 +31,9 @@ public class EmailController {
         return emailService.saveEmail(email);
     }
 
+    @PatchMapping("/atualizar-email/{id}")
+    public EmailModel updateEmail(@PathVariable Long id, @RequestBody EmailModel updatedEmail) {
+        return emailService.updateEmail(id, updatedEmail);
+    }
+
 }
