@@ -20,10 +20,13 @@ public class EmailModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "email_id")
     private Long id;
+
     @Column
     private String sender;
+
     @Column
     private String receiver;
+
     @Column
     private String subject;
 
@@ -32,14 +35,12 @@ public class EmailModel {
 
     @Column(name = "is_read")
     private boolean read;
+
     @Column
     private boolean starred;
+
     @Column
     private boolean trashed;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private UserModel user;
 
     @Column
     private boolean hasEvent;
@@ -56,7 +57,7 @@ public class EmailModel {
 
     @Column
     private Time eventEndHour;
+
     @Column
     private String description;
-
 }
