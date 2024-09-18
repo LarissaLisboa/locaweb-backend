@@ -10,5 +10,7 @@ import java.util.Optional;
 @Repository
 public interface UserPreferenceRepository extends JpaRepository<UserPreferenceModel, Long> {
 
+    // removed userId
+
     UserPreferenceModel save(UserPreferenceModel userPreference);
 }
