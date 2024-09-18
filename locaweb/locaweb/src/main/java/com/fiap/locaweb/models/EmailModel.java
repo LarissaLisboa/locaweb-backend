@@ -48,15 +48,14 @@ public class EmailModel {
     @Column
     private String eventTitle;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy - HH:mm")
     @Column
-    private LocalDateTime eventDate;
+    private String eventDate;
 
     @Column
-    private Time eventStartHour;
+    private String eventStartHour;
 
     @Column
-    private Time eventEndHour;
+    private String eventEndHour;
 
     @Column
     private String description;
